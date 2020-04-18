@@ -5,18 +5,29 @@ import { HomePage } from './pages/homepage/homepage';
 import { ShopPage } from './pages/shop/shop';
 import { SignInAndSignUpPage } from './pages/sign-in-and-sign-up/sign-in-and-sign-up';
 import { Header } from './components/header/header';
-import { auth } from './firebase/firebase.utils';
-import { User } from 'firebase';
+import { auth, createUserProfileDocument } from './firebase/firebase.utils';
 
 const App = () => {
-    const [currentUser, setCurrentUser] = React.useState<User | null>(null);
+    const [currentUser, setCurrentUser] = React.useState<any>(null); //TODO: Type the user data we use in app
 
     React.useEffect(() => {
-        const unsubscribe = auth.onAuthStateChanged((user) => setCurrentUser(user));
+        const unsubscribe = auth.onAuthStateChanged(async (userAuth) => {
+            if (userAuth) {
+                const userRef = await createUserProfileDocument(userAuth, 'lol');
+
+                userRef?.onSnapshot((snapShot) => {
+                    setCurrentUser({
+                        currentUser: {
+                            id: snapShot.id,
+                            ...snapShot.data(),
+                        },
+                    });
+                });
+            }
+            setCurrentUser(null);
+        });
         return () => unsubscribe();
     }, []);
-
-    console.log('hey ', currentUser);
 
     return (
         <div>

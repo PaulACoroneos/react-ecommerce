@@ -2,6 +2,7 @@ import * as React from 'react';
 import { FormInput } from '../form-input/form-input';
 import './sign-in.styles.scss';
 import { CustomButton } from '../custom-button/custom-button';
+import { signInWithGoogle } from '../../firebase/firebase.utils';
 
 export const SignIn: React.FC = () => {
     const [email, setEmail] = React.useState('');
@@ -33,9 +34,14 @@ export const SignIn: React.FC = () => {
                     handleChange={handleChange}
                     label="password"
                 />
-                <CustomButton type="submit" value="Submit form" onSubmit={handleSubmit}>
-                    Submit
-                </CustomButton>
+                <div className="buttons">
+                    <CustomButton type="submit" value="Submit form" onSubmit={handleSubmit}>
+                        Submit
+                    </CustomButton>
+                    <CustomButton onClick={signInWithGoogle} isGoogleSignIn>
+                        Sign In With Google
+                    </CustomButton>
+                </div>
             </form>
         </div>
     );

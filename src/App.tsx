@@ -6,7 +6,7 @@ import { ShopPage } from './pages/shop/shop';
 import { SignInAndSignUpPage } from './pages/sign-in-and-sign-up/sign-in-and-sign-up';
 import Header from './components/header/header';
 import { auth, createUserProfileDocument } from './firebase/firebase.utils';
-import { setCurrentUser, clearCurrentUser } from './store/user/userSlice';
+import { setCurrentUser, clearCurrentUser } from './store/user/user-slice';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import { RootState } from './store/reducers/reducers';

@@ -3,11 +3,20 @@ import { Link } from 'react-router-dom';
 import { ReactComponent as Logo } from '../../assets/crown.svg';
 import './header.styles.scss';
 import { auth } from '../../firebase/firebase.utils';
-import { useSelector } from 'react-redux';
+import { useSelector, shallowEqual } from 'react-redux';
 import { RootState } from '../../store/reducers/reducers';
+import { CartIcon } from '../cart-icon/cart-icon';
+import { CartDropdown } from '../cart-dropdown/cart-dropdown';
 
 const Header: React.FC = () => {
-    const isLoggedIn = useSelector((state: RootState) => state.user.id);
+    const { isLoggedIn, isCartHidden } = useSelector(
+        (state: RootState) => ({
+            isLoggedIn: state.user.id,
+            isCartHidden: state.cart.hidden,
+        }),
+        shallowEqual,
+    );
+
     return (
         <div className="header">
             <Link className="logo-container" to="/">
@@ -29,7 +38,9 @@ const Header: React.FC = () => {
                         SIGN IN
                     </Link>
                 )}
+                <CartIcon />
             </div>
+            {!isCartHidden && <CartDropdown />}
         </div>
     );
 };

@@ -2,7 +2,7 @@ import * as React from 'react';
 import './checkout-item.styles.scss';
 import { Item } from '../../pages/shop/shop.constants';
 import { useDispatch } from 'react-redux';
-import { removeSingleItemFromCart, addItemToCart } from '../../store/cart/cart-slice';
+import { removeSingleItemFromCart, addItemToCart, removeItemFromCart } from '../../store/cart/cart-slice';
 
 interface CheckoutItemProps {
     item: Item;
@@ -27,7 +27,7 @@ export const CheckoutItem: React.FC<CheckoutItemProps> = ({ item }) => {
                 </div>
             </span>
             <span className="price">{price}</span>
-            <div onClick={() => dispatch(removeSingleItemFromCart(item))} className="remove-button">
+            <div onClick={() => dispatch(removeItemFromCart(item))} className="remove-button">
                 &#10005;
             </div>
         </div>

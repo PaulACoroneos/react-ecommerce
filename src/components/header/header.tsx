@@ -4,9 +4,9 @@ import { ReactComponent as Logo } from '../../assets/crown.svg';
 import './header.styles.scss';
 import { auth } from '../../firebase/firebase.utils';
 import { useSelector, shallowEqual } from 'react-redux';
-import { RootState } from '../../store/reducers/reducers';
 import { CartIcon } from '../cart-icon/cart-icon';
 import { CartDropdown } from '../cart-dropdown/cart-dropdown';
+import { RootState } from '../../store/reducers/reducers';
 
 const Header: React.FC = () => {
     const { isLoggedIn, isCartHidden } = useSelector(

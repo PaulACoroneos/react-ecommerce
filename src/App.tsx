@@ -10,6 +10,7 @@ import { setCurrentUser, clearCurrentUser } from './store/user/user-slice';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import { RootState } from './store/reducers/reducers';
+import { CheckoutPage } from './pages/checkout/checkout';
 
 const App = () => {
     const dispatch = useDispatch();
@@ -35,6 +36,7 @@ const App = () => {
             <Switch>
                 <Route exact path="/" component={HomePage} />
                 <Route path="/shop" component={ShopPage} />
+                <Route path="/checkout" component={CheckoutPage} />
                 <Route
                     exact
                     path="/signin"

@@ -3,6 +3,7 @@ import './checkout.styles.scss';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../store/reducers/reducers';
 import { CheckoutItem } from '../../components/checkout-item/checkout-item';
+import { StripeCheckoutButton } from '../../components/stripe-button/stripe-button';
 
 export const CheckoutPage: React.FC = () => {
     const { quantity, cartItems, total } = useSelector((state: RootState) => ({
@@ -36,6 +37,11 @@ export const CheckoutPage: React.FC = () => {
             <div className="total">
                 <span>TOTAL: ${total}</span>
             </div>
+            <div className="test-warning">
+                *Please use the following test credit card of payments* <br />
+                4242 4242 4242 4242, any date in future, CVV: 123
+            </div>
+            <StripeCheckoutButton price={total} />
         </div>
     );
 };

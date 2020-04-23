@@ -8,16 +8,20 @@ export interface Item {
     quantity?: number;
 }
 
-export interface ShopData {
+export interface CollectionData {
     id: number;
     title: string;
     routeName: string;
     items: Item[];
 }
 
-const initialState = {
-    shopData: [
-        {
+interface InitialState {
+    shopData: { [key: string]: CollectionData };
+}
+
+const initialState: InitialState = {
+    shopData: {
+        hats: {
             id: 1,
             title: 'Hats',
             routeName: 'hats',
@@ -78,7 +82,7 @@ const initialState = {
                 },
             ],
         },
-        {
+        sneakers: {
             id: 2,
             title: 'Sneakers',
             routeName: 'sneakers',
@@ -133,7 +137,7 @@ const initialState = {
                 },
             ],
         },
-        {
+        jackets: {
             id: 3,
             title: 'Jackets',
             routeName: 'jackets',
@@ -170,7 +174,7 @@ const initialState = {
                 },
             ],
         },
-        {
+        womens: {
             id: 4,
             title: 'Womens',
             routeName: 'womens',
@@ -219,7 +223,7 @@ const initialState = {
                 },
             ],
         },
-        {
+        mens: {
             id: 5,
             title: 'Mens',
             routeName: 'mens',
@@ -262,7 +266,7 @@ const initialState = {
                 },
             ],
         },
-    ],
+    },
 };
 const shopSlice = createSlice({
     name: 'shop',

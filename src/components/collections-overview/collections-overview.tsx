@@ -8,7 +8,7 @@ export const CollectionsOverview: React.FC = () => {
     const shopData = useSelector((state: RootState) => state.shop.shopData);
     return (
         <div className="collections-overview">
-            {shopData.map(({ id, ...otherCollectionProps }) => (
+            {Object.values(shopData).map(({ id, ...otherCollectionProps }) => (
                 <CollectionPreview key={id} {...otherCollectionProps} />
             ))}
         </div>

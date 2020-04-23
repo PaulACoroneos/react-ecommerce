@@ -1,7 +1,7 @@
 import * as React from 'react';
 import './collection-preview.styles.scss';
 import { CollectionItem } from '../collection-item/collection-item';
-import { Item } from '../../pages/shop/shop.constants';
+import { Item } from '../../store/shop/shop-slice';
 
 interface CollectionPreviewProps {
     title: string;

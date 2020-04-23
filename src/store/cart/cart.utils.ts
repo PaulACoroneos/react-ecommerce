@@ -1,4 +1,4 @@
-import { Item } from '../../pages/shop/shop.constants';
+import { Item } from '../shop/shop-slice';
 
 export const addItemToCartUtil = (cartItems: Item[], cartItemToAdd: Item) => {
     const existingCartItem = cartItems.find((cartItem) => cartItem.id === cartItemToAdd.id);

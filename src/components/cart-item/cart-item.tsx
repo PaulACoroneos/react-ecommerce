@@ -1,6 +1,6 @@
 import * as React from 'react';
 import './cart-item.styles.scss';
-import { Item } from '../../pages/shop/shop.constants';
+import { Item } from '../../store/shop/shop-slice';
 
 interface CartItemProps {
     item: Item;

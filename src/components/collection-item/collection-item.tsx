@@ -1,9 +1,9 @@
 import * as React from 'react';
 import './collection-item.styles.scss';
-import { Item } from '../../pages/shop/shop.constants';
 import { CustomButton } from '../custom-button/custom-button';
 import { useDispatch } from 'react-redux';
 import { addItemToCart } from '../../store/cart/cart-slice';
+import { Item } from '../../store/shop/shop-slice';
 
 interface CollectionItemProps {
     item: Item;

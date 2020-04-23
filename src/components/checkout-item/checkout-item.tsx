@@ -1,8 +1,8 @@
 import * as React from 'react';
 import './checkout-item.styles.scss';
-import { Item } from '../../pages/shop/shop.constants';
 import { useDispatch } from 'react-redux';
 import { removeSingleItemFromCart, addItemToCart, removeItemFromCart } from '../../store/cart/cart-slice';
+import { Item } from '../../store/shop/shop-slice';
 
 interface CheckoutItemProps {
     item: Item;

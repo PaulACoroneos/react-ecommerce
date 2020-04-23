@@ -1,6 +1,6 @@
 import { addItemToCartUtil } from './cart.utils';
 import { createSlice } from '@reduxjs/toolkit';
-import { Item } from '../../pages/shop/shop.constants';
+import { Item } from '../shop/shop-slice';
 
 interface Slicestate {
     hidden: boolean;
